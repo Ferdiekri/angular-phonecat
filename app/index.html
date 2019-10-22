@@ -26,19 +26,18 @@
     <script src="phone-list/phone-list.component.js"></script>
     <script src="phone-detail/phone-detail.module.js"></script>
     <script src="phone-detail/phone-detail.component.js"></script>
+    <script src="phone-comparador/phone-comparador.module.js"></script>
+    <script src="phone-comparador/phone-comparador.component.js"></script>
   </head>
   <body>
 
     <!-- Navbar: Image and text -->
     <nav class="navbar navbar-light bg-info">
-        <a class="navbar-brand" href="#">
-          <h1>
-            <i class="fas fa-mobile-alt"></i>
-            &nbsp;Tutorial Móviles&nbsp;
-            <i class="fas fa-mobile-alt"></i>
-          </h1>
-        </a>
+        <a ng-href="#!/phones" class="">Phones</a>
+        <a ng-href="#!/comparador">Comparador</a>
       </nav>
+
+      <!------------------------------------------------->
 
     <div class="view-container">
       <div ng-view class="view-frame"></div>
