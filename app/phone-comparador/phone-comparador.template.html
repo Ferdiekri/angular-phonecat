@@ -1,5 +1,13 @@
 <div class="container-fluid">
   <h2>Comparador de teléfonos</h2>
+  <p class="bg-success p-3">
+    $ctrl.mostrar: {{ $ctrl.mostrar }}<br>
+    $ctrl.phone1: {{ $ctrl.phone1.id }}<br>
+    $ctrl.phone2: {{ $ctrl.phone2.id }}<br>
+    Comprar Hijo 1: {{ probando }}<br>
+    Comprar Hijo 2:
+  </p>
+
   <div class="row">
     <div class="col-2">      
       Listado de móviles
@@ -9,68 +17,15 @@
           {{ phone.name }}
         </li>
       </ul>
-      
-    </div>
-    <div class="col-5 thumbnail">
-      <h3>{{ $ctrl.phone1.name }}</h3>
-      <img ng-src="{{ $ctrl.phone1.imageUrl }}" class="responsive">
-        
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Característica</th>
-            <th scope="col">Dispositivo</th>
-            <th scope="col">Diferencia</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>Flash</th>
-            <td>{{ $ctrl.phone1.flash }} Mb.</td>
-            <td class="{{ ($ctrl.flash1 < 0)?'text-danger':( ($ctrl.flash1 > 0)?'text-success':'text-info') }}">
-                <span ng-show="$ctrl.mostrar">{{ $ctrl.flash1 }} Mb.</span></td>
-          </tr>
-          <tr>
-            <th>Ram</th>
-            <td>{{ $ctrl.phone1.ram }} Mb.</td>
-            <td class="{{ ($ctrl.ram1 < 0)?'text-danger':( ($ctrl.ram1 > 0)?'text-success':'text-info') }}">
-                <span ng-show="$ctrl.mostrar">{{ $ctrl.ram1 }} Mb.</span></td>
-          </tr>
-        </tbody>
-      </table>
     </div>
 
+    <div class="col-5 thumbnail">      
+      <phone-comparador-detalle telefono1="$ctrl.phone1" telefono2="$ctrl.phone2" probando="true"></phone-comparador-detalle>
+    </div>
       
     <div class="col-5 thumbnail">
-        <h3>{{ $ctrl.phone2.name }}</h3>
-        <img ng-src="{{ $ctrl.phone2.imageUrl }}" class="responsive">
-
-        <table class="table">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Característica</th>
-              <th scope="col">Dispositivo</th>
-              <th scope="col">Diferencia</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>Flash</th>
-              <td>{{ $ctrl.phone2.flash }} Mb.</td>
-              <td class="{{ ($ctrl.flash2 < 0)?'text-danger':( ($ctrl.flash2 > 0)?'text-success':'text-info') }}">
-                  <span ng-show="$ctrl.mostrar">{{ $ctrl.flash2 }} Mb.</span></td>
-            </tr>
-            <tr>
-              <th>Ram</th>
-              <td>{{ $ctrl.phone2.ram }} Mb.</td>
-              <td class="{{ ($ctrl.ram2 < 0)?'text-danger':( ($ctrl.ram2 > 0)?'text-success':'text-info') }}">
-                <span ng-show="$ctrl.mostrar">{{ $ctrl.ram2 }} Mb.</span>
-                </td>
-            </tr>
-          </tbody>
-        </table>
+        <phone-comparador-detalle telefono1="$ctrl.phone2" telefono2="$ctrl.phone1"></phone-comparador-detalle>
     </div>
-
 
     </div>
   </div>

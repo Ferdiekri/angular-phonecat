@@ -15,45 +15,48 @@ angular.
         self.phone1 = {};
         self.phone2 = {};
         self.orderProp = 'age';
-        self.flash1 = 0;
-        self.flash2 = 0;
-        self.ram1 = 0;
-        self.ram2 = 0;
         self.mostrar = false;
 
         this.seleccionar = function(phone){
           console.trace('seleccionar()');
+           
+          if (Object.keys(self.phone1).length === 0) {
+            console.trace('Llenamos phone1');
+            self.phone1 = phone;
+          }else {
+            console.trace('Llenamos phone2');
+            self.phone2 = self.phone1;
+            self.phone1 = phone;
+          }
           
-            if (Object.keys(self.phone1).length === 0) {
-              console.trace('Llenamos phone1');
-              self.phone1 = phone;
-            }else {
-              console.trace('Llenamos phone2');
-              self.phone2 = self.phone1;
-              self.phone1 = phone;
-            }
-
-            if( (Object.keys(self.phone1).length != 0) && (Object.keys(self.phone2).length != 0) ){
-              self.comparar();
-            }
-            
-       // Object.keys(self.phone1)==0
-          
-            
-            
         } // seleccionar()
-
-        this.comparar = function(){
-          console.trace('comparar()');
-
-          self.flash1 = self.phone1.flash - self.phone2.flash;
-          self.ram1 = self.phone1.ram - self.phone2.ram;
-          self.flash2 = self.phone2.flash - self.phone1.flash;
-          self.ram2 = self.phone2.ram - self.phone1.ram;
-
-          self.mostrar = true;
-
-        } // comparar()
       }
     ]
-  });
+  })
+  .directive("ipComparar",[function() {
+     
+    var directiveDefinitionObject ={
+      restrict:"E",
+      replace : false,
+      template:"<span class=\"{{ (v1 < v2)?'text-danger':( (v1 > 0)?'text-success':'text-info') }}\">{{ v1-v2 }}</span>",
+      scope:{
+        v1:"=",
+        v2:"="
+      },
+      link:function(scope, iElement, iAttrs, controller, transcludeFn) {
+        /*var htmlColor;
+        var resta = (+scope.v1)-(+scope.v2);
+
+        if ( resta > 0 ) {
+          htmlColor="green";
+        }else if( resta < 0 ){
+          htmlColor="red";
+        }else{
+          htmlColor="teal";
+        }
+
+        iElement.css("background-color",htmlColor);*/
+      }
+    }    
+    return directiveDefinitionObject;
+  }]);
