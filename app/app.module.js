@@ -8,7 +8,8 @@ angular.module('phonecatApp', [
   'phoneDetail',
   'phoneList',
   'phoneComparador',
-  'phoneComparadorDetalle'
+  'phoneComparadorDetalle',
+  'carroCompra'
 
 ]);
 

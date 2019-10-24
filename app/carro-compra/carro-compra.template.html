@@ -1,0 +1,32 @@
+<!-- carro-compra -->
+
+<h1>Bienvenido al carrito de la compra.</h1>
+
+<p class="bg-success p-3">{{ $ctrl.telefonos }}</p>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Cantidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tel of getKeys($ctrl.telefonos)">
+            <th scope="row">{{ tel.id }}</th>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- /carro-compra -->

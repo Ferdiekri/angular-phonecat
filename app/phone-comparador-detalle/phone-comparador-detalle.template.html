@@ -1,12 +1,8 @@
 <!-- phone-comparador-detalle -->
 
-<p class="bg-success p-3">
-  $ctrl.mostrar: {{ $ctrl.mostrar }}<br>
-</p>
-
-
-  <div class="row" ng-if="!$ctrl.telefono1.id">
+  <div class="row" ng-if="!$ctrl.telefono1.id+k">
     <img src="../img/phones/no-phone.png" class="responsive">
+    <h3>Selecciona un teléfono.</h3>
   </div>
 
   <div class="row" ng-if="$ctrl.telefono1.id">

@@ -1,10 +1,18 @@
 <div class="container-fluid">
-  <h2>Comparador de teléfonos</h2>
-  <p class="bg-success p-3">
-    $ctrl.mostrar: {{ $ctrl.mostrar }}<br>
-    $ctrl.phone1: {{ $ctrl.phone1.id }}<br>
-    $ctrl.phone2: {{ $ctrl.phone2.id }}<br>
-  </p>
+  <div class="row">
+    <div class="col">
+      <h2>Comparador de teléfonos</h2>
+      <p class="bg-success p-3">
+        $ctrl.mostrar: {{ $ctrl.mostrar }}<br>
+        $ctrl.phone1: {{ $ctrl.phone1.id }}<br>
+        $ctrl.phone2: {{ $ctrl.phone2.id }}<br>
+        Elementos en el carrito: {{ $ctrl.listadoCarrito().length }}
+      </p>
+    </div>
+  </div>
+  
+
+  <i class="fas fa-cart-arrow-down"></i>
 
   <div class="row">
     <div class="col-2">      

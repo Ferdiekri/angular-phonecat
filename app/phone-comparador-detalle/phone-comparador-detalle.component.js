@@ -10,8 +10,8 @@ angular.
       telefono2: '=',
       probando: "@"
     },
-    controller: ['Phone','$scope',
-      function PhoneComparadorDetalleController(Phone,$scope) {
+    controller: ['Phone','$scope','carritoServicio',
+      function PhoneComparadorDetalleController(Phone,$scope,carritoServicio) {
 
         var self = this;
         //self.mostrar = false;
@@ -27,7 +27,8 @@ angular.
 
 
       self.comprar = function() {
-        $scope.$emit("eventoCompra", { telefono: self.telefono1 });
+        //$scope.$emit("eventoCompra", { telefono: self.telefono1 });
+        carritoServicio.setProducto(self.telefono1);
       } // comprar()    
         
       }]

@@ -4,17 +4,20 @@ angular.
   module('phonecatApp').
   config(['$routeProvider',
     function config($routeProvider) {
-      $routeProvider.
-        when('/phones', {
+      $routeProvider
+        .when('/phones', {
           template: '<phone-list></phone-list>'
-        }).
-        when('/phones/:phoneId', {
+        })
+        .when('/phones/:phoneId', {
           template: '<phone-detail></phone-detail>'
-        }).
-        when('/comparador', {
+        })
+        .when('/comparador', {
           template: '<phone-comparador></phone-comparador>'
-        }).
-        otherwise('/phones');
+        })
+        .when('/carro', {
+          template: '<carro-compra></carro-compra>'
+        })
+        .otherwise('/phones');
     }
   ]);
 

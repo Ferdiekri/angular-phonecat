@@ -5,8 +5,8 @@ angular.
   module('phoneComparador').
   component('phoneComparador', {
     templateUrl: 'phone-comparador/phone-comparador.template.html',
-    controller: ['Phone','$scope',
-      function PhoneComparadorController(Phone, $scope) {
+    controller: ['Phone','$scope','carritoServicio',
+      function PhoneComparadorController(Phone, $scope,carritoServicio) {
 
         var self = this;
 
@@ -16,6 +16,7 @@ angular.
         self.phone2 = {};
         self.orderProp = 'age';
         self.mostrar = false;
+        self.listado = [];
 
         this.seleccionar = function(phone){
           console.trace('seleccionar()');
@@ -31,8 +32,13 @@ angular.
           self.mostrar = true;
         } // seleccionar()
 
+        self.listadoCarrito = function(){
+          return carritoServicio.getAllProductos();
+        }
+
         $scope.$on("eventoCompra", function(event, data){
           alert("eventoCompra en padre: " + data.telefono.id);
+          self.listado = carritoServicio.getAllProductos();
         });
         
       }]

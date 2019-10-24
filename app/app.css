@@ -7,6 +7,17 @@ h1 {
   margin-top: 0;
 }
 
+nav a{
+  text-decoration: none;
+  color: black;
+}
+
+.nav-link {
+  display: flex !important;
+  font-size: 2em !important;
+  align-items: center !important;
+}
+
 /* View: Phone list */
 .phones {
   list-style: none;

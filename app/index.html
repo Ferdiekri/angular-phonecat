@@ -21,8 +21,11 @@
     <script src="core/core.module.js"></script>
     <script src="core/directiva.comparador.js"></script>
     <script src="core/checkmark/checkmark.filter.js"></script>
+    <script src="core/servicio.comprar.js"></script>
     <script src="core/phone/phone.module.js"></script>
     <script src="core/phone/phone.service.js"></script>
+    <script src="carro-compra/carro-compra.module.js"></script>
+    <script src="carro-compra/carro-compra.component.js"></script>
     <script src="phone-list/phone-list.module.js"></script>
     <script src="phone-list/phone-list.component.js"></script>
     <script src="phone-detail/phone-detail.module.js"></script>
@@ -36,12 +39,12 @@
   <body>
 
     <!-- Navbar: Image and text -->
-    <nav class="navbar navbar-light bg-info">
-        <a ng-href="#!/phones" class="badge badge-dark p-3">Phones</a>
-        <a ng-href="#!/comparador" class="badge badge-dark p-3">Comparador</a>
-      </nav>
-
-      <!------------------------------------------------->
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+      <a class="nav-link" href="#"><i class="fas fa-mobile-alt fa-3x"></i>&nbsp;&nbsp;&nbsp;Inicio</a>
+      <a class="nav-link" ng-href="#!/comparador"><i class="fas fa-not-equal fa-3x"></i>&nbsp;&nbsp;&nbsp;Comparador</a>
+      <a class="nav-link" ng-href="#"><i class="fas fa-file fa-3x"></i>&nbsp;&nbsp;&nbsp;Nuevo</a>
+      <a class="nav-link" ng-href="#!/carro"><i class="fas fa-cart-arrow-down fa-3x"></i></i>&nbsp;&nbsp;&nbsp;Carrito</a>
+    </nav>
 
     <div class="view-container">
       <div ng-view class="view-frame"></div>
