@@ -5,8 +5,8 @@ angular.
   module('phoneComparador').
   component('phoneComparador', {
     templateUrl: 'phone-comparador/phone-comparador.template.html',
-    controller: ['Phone',
-      function PhoneComparadorController(Phone) {
+    controller: ['Phone','$scope',
+      function PhoneComparadorController(Phone, $scope) {
 
         var self = this;
 
@@ -28,35 +28,12 @@ angular.
             self.phone2 = self.phone1;
             self.phone1 = phone;
           }
-          
+          self.mostrar = true;
         } // seleccionar()
-      }
-    ]
-  })
-  .directive("ipComparar",[function() {
-     
-    var directiveDefinitionObject ={
-      restrict:"E",
-      replace : false,
-      template:"<span class=\"{{ (v1 < v2)?'text-danger':( (v1 > 0)?'text-success':'text-info') }}\">{{ v1-v2 }}</span>",
-      scope:{
-        v1:"=",
-        v2:"="
-      },
-      link:function(scope, iElement, iAttrs, controller, transcludeFn) {
-        /*var htmlColor;
-        var resta = (+scope.v1)-(+scope.v2);
 
-        if ( resta > 0 ) {
-          htmlColor="green";
-        }else if( resta < 0 ){
-          htmlColor="red";
-        }else{
-          htmlColor="teal";
-        }
-
-        iElement.css("background-color",htmlColor);*/
-      }
-    }    
-    return directiveDefinitionObject;
-  }]);
+        $scope.$on("eventoCompra", function(event, data){
+          alert("eventoCompra en padre: " + data.telefono.id);
+        });
+        
+      }]
+  });

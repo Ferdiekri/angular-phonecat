@@ -8,12 +8,13 @@ angular.
     bindings: {
       telefono1: '=',
       telefono2: '=',
-      probando: "<"
+      probando: "@"
     },
-    controller: ['Phone',
-      function PhoneComparadorDetalleController(Phone) {
+    controller: ['Phone','$scope',
+      function PhoneComparadorDetalleController(Phone,$scope) {
 
         var self = this;
+        //self.mostrar = false;
 
         console.trace('PhoneComparadorDetalleController');
 
@@ -21,27 +22,13 @@ angular.
           console.trace('PhoneComparadorDetalleController onInit()');
           self.flash = 0;
           self.ram = 0;
-          self.mostrar = false;
+          self.mostrar = true;
         } // onInit()
 
-        /*
-        this.onChanges = function(changes){
-          self.flash = self.telefono1.flash - self.telefono2.flash;
-          self.ram = self.telefono1.ram - self.telefono2.ram;
 
-          self.mostrar = true;
-        } // onChanges()
-        
-
-      if (self.telefono2.name != undefined) {
-          self.mostrar = true;
-      }
-*/
-      this.comprar = function() {
-        self.probando = "¡Hola padre!";
-
-      } // comprar()
-    
+      self.comprar = function() {
+        $scope.$emit("eventoCompra", { telefono: self.telefono1 });
+      } // comprar()    
         
       }]
   });

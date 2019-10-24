@@ -1,32 +1,42 @@
 <!-- phone-comparador-detalle -->
 
-  <h3>{{ $ctrl.telefono1.name }}</h3>
-  {{ $ctrl.probando }}
-  <img ng-src="{{ $ctrl.telefono1.imageUrl }}" class="responsive">
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Característica</th>
-        <th scope="col">Dispositivo</th>
-        <th scope="col">Diferencia</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>Flash</th>
-        <td>{{ $ctrl.telefono1.flash }} Mb.</td>
-        <td>
-          <ip-comparar v1="$ctrl.telefono1.flash" v2="$ctrl.telefono2.flash" class="thumbnail"></ip-comparar>
-        </td>
-      </tr>
-      <tr>
-        <th>Ram</th>
-        <td>{{ $ctrl.telefono1.ram }} Mb.</td>
-        <td>
-            <ip-comparar v1="$ctrl.telefono1.flash" v2="$ctrl.telefono2.flash" class="thumbnail"></ip-comparar>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<p class="bg-success p-3">
+  $ctrl.mostrar: {{ $ctrl.mostrar }}<br>
+</p>
 
-  <button class="btn btn-primary btn-block" ng-click="comprar()">Comprar</button>
+
+  <div class="row" ng-if="!$ctrl.telefono1.id">
+    <img src="../img/phones/no-phone.png" class="responsive">
+  </div>
+
+  <div class="row" ng-if="$ctrl.telefono1.id">
+    <h3>{{ $ctrl.telefono1.name }}</h3>
+    <img ng-src="{{ $ctrl.telefono1.imageUrl }}" class="responsive">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Característica</th>
+          <th scope="col">Dispositivo</th>
+          <th scope="col">Diferencia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Flash</th>
+          <td>{{ $ctrl.telefono1.flash }} Mb.</td>
+          <td>
+            <ip-comparar v1="$ctrl.telefono1.flash" v2="$ctrl.telefono2.flash" class="thumbnail"></ip-comparar>
+          </td>
+        </tr>
+        <tr>
+          <th>Ram</th>
+          <td>{{ $ctrl.telefono1.ram }} Mb.</td>
+          <td>
+              <ip-comparar v1="$ctrl.telefono1.flash" v2="$ctrl.telefono2.flash" class="thumbnail"></ip-comparar>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button class="btn btn-primary btn-block" ng-click="$ctrl.comprar()">Comprar</button>
+  </div>
