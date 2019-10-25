@@ -16,6 +16,13 @@ angular.
         console.trace('carroCompraController onInit()');
         self.telefonos = carritoServicio.getAllProductosArray();
         self.suma = carritoServicio.sumarPrecios();
+
+        this.eliminar = function(pojo){
+          console.trace('carroCompraController eliminar()');
+
+          carritoServicio.eliminarProducto(pojo.telefono.id);
+
+        } // eliminar()
         
       }]
   });

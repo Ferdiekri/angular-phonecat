@@ -11,7 +11,49 @@
   </div>
   
 
-  <i class="fas fa-cart-arrow-down"></i>
+  <div class="row thumbnail">
+    <div class="col ">
+      <h3>Filtrador de teléfonos</h3>
+      <a href="https://codepen.io/jakob-e/pen/RPGqXK">Codepen de ejemplo.</a>
+      <div class="row">
+        <div class="col thumbnail">
+          <h4>Por precio</h4>
+
+          <input type="range" 
+               min="0" 
+               max="1024"
+               numeric
+               data-ng-model="ui.min" ><br>
+               {{ ui.min }} Mb.
+
+        </div>
+        <div class="col thumbnail">
+          <h4>Por flash</h4>
+
+          <input type="range" 
+               min="0" 
+               max="1024"
+               numeric
+               data-ng-model="ui.min" ><br>
+               {{ ui.min }} Mb.
+
+        </div>
+        <div class="col thumbnail">
+          <h4>Por RAM</h4>
+
+          <input type="range" 
+               min="0" 
+               max="1024"
+               numeric
+               data-ng-model="ui.min" ><br>
+               {{ ui.min }} Mb.
+
+        </div>
+      </div> <!-- .row -->
+    </div> <!-- .col -->
+  </div> <!-- .row -->
+
+
 
   <div class="row">
     <div class="col-2">      

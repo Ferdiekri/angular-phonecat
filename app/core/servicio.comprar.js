@@ -21,6 +21,14 @@ core
           return Array.from(this.productos.values());
         }, // getAllProductosArray()
 
+        eliminarProducto: function(idTel) {
+          console.trace('eliminarProducto');
+          this.productos.delete(idTel);
+          
+
+        }, // eliminarProducto()
+
+
         sumarPrecios: function() {
           console.trace('sumarPrecios: %o', this.productos);
           var suma = 0;
@@ -48,54 +56,6 @@ core
           }
 
         }, // setProducto()
-
-        /*convertirMapaArray: function(){
-          console.trace('convertirMapaArray()');
-          var indices = Array.from(this.productos.keys());
-          var tel = [];
-
-          if (indices != undefined) {
-
-            for (let i = 0; i < indices.length; i++) {
-
-              Phone.getById(indices[i]).then(
-                function successCallback(response) {
-                  console.trace("Success");
-                  tel = response.data;
-                  
-                },
-                function errorCallback(response) {
-                  console.warn('Error 404: Phone Not Found %o', response);
-                  $location.url('/404');
-                }
-              );
-
-              this.productosArray.push(tel);
-
-              
-              Phone.getById(indices[i])
-                .then( 
-                  function successCallback(response) {
-                    console.trace("Success");
-                    tel = response.data;
-                  },
-                  function errorCallback(response) {
-                    console.warn("Error");
-                  }
-                );
-                this.productosArray.push(tel);
-                
-              
-            } // for
-          } // if
-          console.trace('convertirMapaArray() FIN');
-
-          return this.productosArray;
-          
-
-        } // convertirMapaArray()*/
-
-
 
       }; //end return
     } // end function

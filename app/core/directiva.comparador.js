@@ -6,7 +6,7 @@ core.directive("ipComparar",[function() {
     var directiveDefinitionObject ={
       restrict:"E",
       replace : false,
-      template:"<span class=\"{{ (v1 < v2)?'text-danger':( (v1 > 0)?'text-success':'text-info') }}\">{{ v1-v2 }}</span>",
+      template:"<span class=\"{{ (v1 < v2)?'text-danger':( (v1 > 0)?'text-success':'text-info') }}\"><strong>{{ v1-v2 }} Mb.</strong></span>",
       scope:{
         v1:"=",
         v2:"="
