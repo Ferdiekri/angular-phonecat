@@ -2,14 +2,24 @@
 
 angular.
   module('core.phone').
-  factory('Phone', ['$resource',
-    function($resource) {
-      return $resource('phones/:phoneId.json', {}, {
-        query: {
-          method: 'GET',
-          params: {phoneId: 'phones'},
-          isArray: true
-        }
-      });
+  factory('Phone', ['$http',  function($http) {
+
+     let service = {};
+     let endpoint = "http://localhost:3000/phones/";
+
+     service.getAll = function(){      
+        console.trace('GET ' + endpoint);
+        return $http.get(endpoint);
+     }
+
+
+      service.getById = function( id ){
+        console.trace("Entramos en el getById")
+        let url = endpoint + id;
+        console.trace('GET ' + url);
+        return $http.get(url);
+      }
+
+      return service;
     }
   ]);

@@ -11,12 +11,23 @@ angular.
         var self = this;
 
         console.trace('PhoneComparadorController');
-        self.phones = Phone.query();
+        self.phones =
+          Phone.getAll().then( 
+            function successCallback(response) {
+              console.trace("Success");
+              self.phones = response.data;
+            },
+            function errorCallback(response) {
+              console.warn("Error");
+            }
+          );
+
         self.phone1 = {};
         self.phone2 = {};
         self.orderProp = 'age';
         self.mostrar = false;
         self.listado = [];
+        self.carrito = [];
 
         this.seleccionar = function(phone){
           console.trace('seleccionar()');
@@ -32,13 +43,15 @@ angular.
           self.mostrar = true;
         } // seleccionar()
 
-        self.listadoCarrito = function(){
+        /*self.listadoCarrito = function(){
+          console.trace('listadoCarrito');
           return carritoServicio.getAllProductos();
-        }
+        }*/
 
         $scope.$on("eventoCompra", function(event, data){
-          alert("eventoCompra en padre: " + data.telefono.id);
-          self.listado = carritoServicio.getAllProductos();
+          //alert("eventoCompra en padre: " + data.telefono.id);
+          console.trace('eventoCompra: %o', self.carrito);
+          self.carrito = carritoServicio.getAllProductos()
         });
         
       }]

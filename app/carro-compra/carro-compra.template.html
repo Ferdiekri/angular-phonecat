@@ -1,9 +1,50 @@
 <!-- carro-compra -->
 
 <h1>Bienvenido al carrito de la compra.</h1>
+<!--
+<p class="bg-success p-3">
+    telefonos: <pre><code>{{ $ctrl.telefonos |json }}</code></pre><br>
+</p>
+-->
 
-<p class="bg-success p-3">{{ $ctrl.telefonos }}</p>
+<div class="row">
 
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Foto</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="tel in $ctrl.telefonos" >
+                <td><img ng-src="{{ tel.telefono.imageUrl }}" width="50px" height="auto"></td>
+                <td>{{ tel.telefono.name }}</td>
+                <td>{{ tel.cantidad }}</td>
+                <td>{{ tel.telefono.precio | currency }}</td>
+                <td>{{ (tel.cantidad * tel.telefono.precio) | currency }}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4"><strong>TOTAL</strong></td>
+                <td>{{ $ctrl.suma | currency }}</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
+
+    
+
+
+
+
+
+<!--
 <table class="table">
     <thead class="thead-dark">
         <tr>
@@ -16,17 +57,6 @@
             <th scope="row">{{ tel.id }}</th>
     </tbody>
 </table>
-
-
-
-
-
-
-
-
-
-
-
-
+-->
 
 <!-- /carro-compra -->
