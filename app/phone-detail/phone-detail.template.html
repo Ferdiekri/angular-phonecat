@@ -4,7 +4,10 @@
       ng-repeat="img in $ctrl.phone.images" />
 </div>
 
-<h1>{{$ctrl.phone.name}}</h1>
+<h1>{{$ctrl.phone.name}}
+    <a ng-href="index.html#!/editar/{{$ctrl.phone.id}}" class="btn btn-success mb-2">Editar</a>
+    <i class="far fa-times-circle text-danger" ng-click="$ctrl.eliminar($ctrl.phone.id)"></i>
+</h1>
 
 <p>{{$ctrl.phone.description}}</p>
 

@@ -4,8 +4,6 @@ core
   .factory('carritoServicio', ['Phone',
     function(Phone) {
 
-      // 
-
       return {
 
         productos: new Map(),

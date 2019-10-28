@@ -26,6 +26,18 @@ component('phoneDetail', {
       self.setImage = function setImage(imageUrl) {
         self.mainImageUrl = imageUrl;
       };
+
+      self.eliminar = function(id){
+        console.trace("eliminar");
+        Phone.eliminar(id).then(
+          ()=>{
+            console.debug('telefono eleiminado');
+            $location.url('/phones');
+          },
+          ()=>console.warn('telefono NO eliminado')
+        );
+
+      }
     }
   ]
 });

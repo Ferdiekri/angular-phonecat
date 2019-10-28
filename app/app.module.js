@@ -9,7 +9,8 @@ angular.module('phonecatApp', [
   'phoneList',
   'phoneComparador',
   'phoneComparadorDetalle',
-  'carroCompra'
+  'carroCompra',
+  'phoneNuevo'
 
 ]);
 

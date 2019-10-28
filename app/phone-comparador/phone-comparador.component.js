@@ -9,6 +9,7 @@ angular.
       function PhoneComparadorController(Phone, $scope,carritoServicio) {
 
         var self = this;
+        self.phones = [];
 
         console.trace('PhoneComparadorController');
         self.phones =
@@ -55,4 +56,22 @@ angular.
         });
         
       }]
+  });
+
+  angular.module('phoneComparador').filter('filtroTelefonos', function () {
+    return function( items, attr, min, max){
+      console.log('filtroTelefonos attr=%s  min=%s max=%s', attr, min, max );
+
+      if ( items ){
+
+        return items.filter((telefono)=> {
+          let value = telefono[attr];
+          console.debug("telefono=%s value=%s min%s max=%s", telefono.id, value, min, max );
+          return value >= min && value <= max ;
+        });
+
+      }  
+
+      // return items;
+    }
   });

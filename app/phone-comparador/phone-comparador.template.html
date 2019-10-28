@@ -9,62 +9,34 @@
       </p>
     </div>
   </div>
-  
-
-  <div class="row thumbnail">
-    <div class="col ">
-      <h3>Filtrador de teléfonos</h3>
-      <a href="https://codepen.io/jakob-e/pen/RPGqXK">Codepen de ejemplo.</a>
-      <div class="row">
-        <div class="col thumbnail">
-          <h4>Por precio</h4>
-
-          <input type="range" 
-               min="0" 
-               max="1024"
-               numeric
-               data-ng-model="ui.min" ><br>
-               {{ ui.min }} Mb.
-
-        </div>
-        <div class="col thumbnail">
-          <h4>Por flash</h4>
-
-          <input type="range" 
-               min="0" 
-               max="1024"
-               numeric
-               data-ng-model="ui.min" ><br>
-               {{ ui.min }} Mb.
-
-        </div>
-        <div class="col thumbnail">
-          <h4>Por RAM</h4>
-
-          <input type="range" 
-               min="0" 
-               max="1024"
-               numeric
-               data-ng-model="ui.min" ><br>
-               {{ ui.min }} Mb.
-
-        </div>
-      </div> <!-- .row -->
-    </div> <!-- .col -->
-  </div> <!-- .row -->
-
-
 
   <div class="row">
+
     <div class="col-2">      
-      Listado de móviles
+      <input type="search" ng-model="nombre" placeholder="Busca por nombre">
+      <select ng-model="filtro.atributo" ng-init="filtro.atributo='flash'">
+        <option value="ram">RAM</option>
+        <option value="flash">FLASH</option>
+      </select>
+
+      <br>
+      <label>MIN {{filtro.min}}</label>
+      <input type="range" ng-model="filtro.min" ng-init="filtro.min=0" step="512" max="2048" min="0">
+
+      <label>MAX {{filtro.max}}</label>
+      <input type="range" ng-model="filtro.max" ng-init="filtro.max=32000" step="512" max="32000" min="0">
+
       <ul class="list-group">
-        <li class="list-group-item" ng-repeat="phone in $ctrl.phones" ng-click="$ctrl.seleccionar(phone)">
-          <img ng-src="{{ phone.imageUrl }}" class="responsive">
-          {{ phone.name }}
-        </li>
+        <li class="list-group-item" 
+            ng-repeat="phone in $ctrl.phones | filter:nombre | filtroTelefonos:filtro.atributo:filtro.min:filtro.max"
+            ng-click="$ctrl.selecionar(phone)">
+          <img ng-src="{{phone.imageUrl}}" class="responsive"/>
+          {{phone.name}}
+          <br>
+          FLASH:{{phone.flash}}  RAM:{{phone.ram}}
+        </li>          
       </ul>
-    </div>
+    </div> <!-- col-2 -->
 
     <div class="col-5 thumbnail">      
       <phone-comparador-detalle telefono1="$ctrl.phone1" telefono2="$ctrl.phone2" probando="true"></phone-comparador-detalle>
@@ -74,6 +46,5 @@
         <phone-comparador-detalle telefono1="$ctrl.phone2" telefono2="$ctrl.phone1"></phone-comparador-detalle>
     </div>
 
-    </div>
-  </div>
+  </div><!-- col-2 -->
 </div>

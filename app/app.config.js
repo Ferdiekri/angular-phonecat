@@ -17,6 +17,12 @@ angular.
         .when('/carro', {
           template: '<carro-compra></carro-compra>'
         })
+        .when('/nuevo', {
+          template: '<phone-nuevo></phone-nuevo>'
+        })
+        .when('/editar/:phoneId', {
+          template: '<phone-nuevo></phone-nuevo>'
+        })
         .otherwise('/phones');
     }
   ]);

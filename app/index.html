@@ -35,17 +35,31 @@
     <script src="phone-comparador/phone-comparador.component.js"></script>
     <script src="phone-comparador-detalle/phone-comparador-detalle.module.js"></script>
     <script src="phone-comparador-detalle/phone-comparador-detalle.component.js"></script>
+    <script src="phone-nuevo/phone-nuevo.module.js"></script>
+    <script src="phone-nuevo/phone-nuevo.component.js"></script>
     
   </head>
   <body>
 
-    <!-- Navbar: Image and text -->
+    <!-- Navbar & Name -->
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
-      <a class="nav-link" href="#"><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;&nbsp;Inicio</a>
-      <a class="nav-link" ng-href="#!/comparador"><i class="fas fa-not-equal"></i>&nbsp;&nbsp;&nbsp;Comparador</a>
-      <a class="nav-link" ng-href="#"><i class="fas fa-file"></i>&nbsp;&nbsp;&nbsp;Nuevo</a>
-      <a class="nav-link" ng-href="#!/carro"><i class="fas fa-cart-arrow-down"></i></i>&nbsp;&nbsp;&nbsp;Carrito</a>
+      <h1>PhoneCat</h1>
     </nav>
+
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-mobile-alt"></i> Inicio</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" ng-href="#!/comparador"><i class="fas fa-not-equal"></i> Comparador</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" ng-href="#!/nuevo"><i class="fas fa-file"></i> Nuevo</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" ng-href="#!/carro"><i class="fas fa-cart-arrow-down"></i></i> Carrito</a>
+      </li>
+    </ul>
 
     <div class="view-container">
       <div ng-view class="view-frame"></div>

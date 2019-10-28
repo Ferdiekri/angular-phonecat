@@ -23,7 +23,7 @@
         <tbody>
             <tr ng-repeat="tel in $ctrl.telefonos" >
                 <td><img ng-src="{{ tel.telefono.imageUrl }}" width="50px" height="auto"></td>
-                <td>{{ tel.telefono.name }}</td>
+                <td><a href="#!/phones/{{tel.telefono.id}}">{{ tel.telefono.name }}</a></td>
                 <td>{{ tel.cantidad }} </td>
                 <td>{{ tel.telefono.precio | currency }}</td>
                 <td>{{ (tel.cantidad * tel.telefono.precio) | currency }}</td>
