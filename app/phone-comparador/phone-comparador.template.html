@@ -19,6 +19,14 @@
         <option value="flash">FLASH</option>
       </select>
 
+      <p class="bg-success p-5">
+
+          <rzslider
+          rz-slider-model="1000"
+          rz-slider-high="10000"
+          rz-slider-options="slider.options"></rzslider>
+      </p>
+
       <br>
       <label>MIN {{filtro.min}}</label>
       <input type="range" ng-model="filtro.min" ng-init="filtro.min=0" step="512" max="2048" min="0">

@@ -30,6 +30,15 @@ angular.
         self.listado = [];
         self.carrito = [];
 
+        $scope.slider = {
+          min: 0,
+          max: 32000,
+          options: {
+            floor: 0,
+            ceil: 32000,
+          },
+        }
+
         this.seleccionar = function(phone){
           console.trace('seleccionar()');
            

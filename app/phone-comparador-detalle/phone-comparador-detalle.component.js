@@ -16,6 +16,8 @@ angular.
         var self = this;
         //self.mostrar = false;
 
+        
+
         console.trace('PhoneComparadorDetalleController');
 
         this.onInit = function() {
